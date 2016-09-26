@@ -3,9 +3,12 @@
 #include "SDL.h"
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include "SDL_ttf.h"
 #include "Board.h"
 #include "Block.h"
 #include <map>
+#include <memory>
+#include "BlockDrawer.h"
 
 class GameMain
 {
@@ -17,10 +20,9 @@ public:
 private:
 	SDL_Renderer* renderer;
 	SDL_Window* window;
-	SDL_Event* mainEvent;
+	std::shared_ptr<SDL_Event> mainEvent;
 	Board board;
 	SDL_Texture* background_image;
-	SDL_Rect* background_rect;
 	static void setRect(SDL_Rect* rect, int x, int y, int w, int h);
 	const int blockSize = 70;
 	const int spaceBetweenBlocks = 10;
@@ -30,6 +32,11 @@ private:
 	const int windowHeight = 480;
 	std::map<int, SDL_Texture*> block_images;
 	vector<SDL_Rect> block_rects;
-	const int xd = 0;
+	SDL_Rect test_rect;
+	SDL_Surface* test_surf;
+	SDL_Texture* test_text;
+	std::unique_ptr<BlockDrawer> block_drawer;
+	SDL_Color white = { 255,255,255,255 };
+	TTF_Font* OpenSans;
 };
 

@@ -74,11 +74,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_image-2.0.1\include;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_mixer-2.0.1\include;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_ttf-2.0.14\include;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_image-2.0.1\include;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_mixer-2.0.1\include;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2-2.0.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_image-2.0.1\lib\x86;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_mixer-2.0.1\lib\x86;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2-2.0.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_ttf-2.0.14\lib\x86;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_image-2.0.1\lib\x86;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2_mixer-2.0.1\lib\x86;C:\Users\Mariusz\Documents\Visual Studio 2015\Projects\Libraries\SDL2-2.0.4\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -117,11 +117,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
+    <ClInclude Include="BlockDrawer.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="GameMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="BlockDrawer.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Main.cpp" />
