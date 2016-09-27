@@ -29,8 +29,15 @@ public:
 	void add_new(void);
 	void push_table(dir);
 	vector<showBlock> get_blocks(void);
+	int getValueFrom(int x, int y) {
+		return table[x][y].get_value();
+	}
+	long get_points() {
+		return points;
+	}
 private:
 	array<array<Block, 4>, 4> table;
+	long points;
 };
 
 

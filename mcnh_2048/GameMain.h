@@ -30,7 +30,7 @@ private:
 	const int leftOffset = 25;
 	const int windowWidth = 360;
 	const int windowHeight = 480;
-	std::map<int, SDL_Texture*> block_images;
+	//std::map<int, SDL_Texture*> block_images;
 	vector<SDL_Rect> block_rects;
 	SDL_Rect test_rect;
 	SDL_Surface* test_surf;

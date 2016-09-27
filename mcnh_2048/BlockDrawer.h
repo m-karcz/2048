@@ -29,13 +29,16 @@ struct NumTexture {
 class BlockDrawer
 {
 public:
-	BlockDrawer(const Board& board_, SDL_Renderer* renderer_);
+	BlockDrawer( Board& board_, SDL_Renderer* renderer_);
 	~BlockDrawer();
 	void test_draw_nums(void); //TO DELETE
+	void draw_block(int x, int y);
+	void draw_points();
 private:
-	const Board& board;
+	 Board& board;
 	SDL_Renderer* renderer;
 	std::unique_ptr<SDL_Rect> rect;
+	SDL_Texture* block_txt;
 	const std::array<NumTexture, 10> nums;
 	const int blockSize = 70;
 	const int spaceBetweenBlocks = 10;

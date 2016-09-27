@@ -9,9 +9,11 @@
 #include <algorithm>
 #include <utility>
 #include <vector>
+#include <windows.h>
+#include <string>
 
 
-Board::Board() {
+Board::Board() : points(0) {
 
 }
 
@@ -69,6 +71,8 @@ void Board::push_table(dir direction) {
 				for (auto y2 = y1 + 1; y2<4 && (col[y2] == col[y1] || col[y2].get_value() == 0); y2++) {
 					if (col[y2] == col[y1]) {
 						col[y1] + col[y2];
+						points += col[y1].get_value();
+						//OutputDebugString((std::to_string(points)+"\n").c_str());
 						happened = true;
 						break;
 					}
