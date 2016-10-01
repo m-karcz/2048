@@ -9,6 +9,7 @@
 #include <map>
 #include <memory>
 #include "BlockDrawer.h"
+#include "windows.h"
 
 class GameMain
 {
@@ -30,13 +31,7 @@ private:
 	const int leftOffset = 25;
 	const int windowWidth = 360;
 	const int windowHeight = 480;
-	//std::map<int, SDL_Texture*> block_images;
-	vector<SDL_Rect> block_rects;
-	SDL_Rect test_rect;
-	SDL_Surface* test_surf;
-	SDL_Texture* test_text;
+	std::vector<SDL_Rect> block_rects;
 	std::unique_ptr<BlockDrawer> block_drawer;
-	SDL_Color white = { 255,255,255,255 };
-	TTF_Font* OpenSans;
 };
 

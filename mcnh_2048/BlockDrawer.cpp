@@ -17,6 +17,7 @@ BlockDrawer::BlockDrawer( Board& board_, SDL_Renderer* renderer_) : board(board_
 BlockDrawer::~BlockDrawer()
 {
 	SDL_DestroyTexture(block_txt);
+
 }
 
 void BlockDrawer::test_draw_nums(void)
@@ -88,5 +89,29 @@ void BlockDrawer::draw_points() {
 		SDL_RenderCopy(renderer, nums[num - '0'].texture, nullptr, rect.get());
 		rect->x += width;
 	}
+	return;
+}
+
+void BlockDrawer::better_draw() {
+	for (auto block : board.movement) {
+		set_rect(leftOffset + (blockSize + spaceBetweenBlocks)*(20*block.x-board.ticks_left*block.move_x)/20, topOffset + (blockSize + spaceBetweenBlocks)*(20*block.y-board.ticks_left*block.move_y)/20, blockSize, blockSize);
+		SDL_RenderCopy(renderer, block_txt, nullptr, rect.get());
+		std::string str_num = std::to_string(board.getValueFrom(block.x,block.y));
+	//hardcoded size
+	int width = nums[0].w;
+	int height = nums[0].h;
+	int start_x = leftOffset + (blockSize + spaceBetweenBlocks)*(20*block.x-board.ticks_left*block.move_x)/20 + blockSize / 2 - width*str_num.size() / 2;
+	int start_y = topOffset + (blockSize + spaceBetweenBlocks)*(20*block.y-board.ticks_left*block.move_y)/20 + blockSize / 2 - height / 2;
+	set_rect(start_x, start_y, width, height);
+	for (auto num : str_num) {
+		SDL_RenderCopy(renderer, nums[num - '0'].texture, nullptr, rect.get());
+		rect->x += width;
+	}
+	}
+	if (SDL_GetTicks() - ticks > 7) {
+		ticks = SDL_GetTicks();
+		board.ticks_left--;
+	}
+	
 	return;
 }

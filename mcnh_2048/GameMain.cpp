@@ -50,8 +50,13 @@ void GameMain::run_loop(void)
 			break;
 		}
 		block_rects.clear();
-		for (auto block : board.get_blocks()) {
-			block_drawer->draw_block(block.x, block.y);
+		if (board.ticks_left) {
+			block_drawer->better_draw();
+		}
+		else {
+			for (auto block : board.get_blocks()) {
+				block_drawer->draw_block(block.x, block.y);
+			}
 		}
 		block_drawer->draw_points();
 		SDL_RenderPresent(renderer);
@@ -61,7 +66,8 @@ void GameMain::run_loop(void)
 
 void GameMain::make_move(dir here)
 {
-	board.push_table(here);
+	//board.push_table(here);
+	board.better_move(here);
 	return;
 }
 

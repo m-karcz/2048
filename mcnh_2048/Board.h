@@ -11,15 +11,19 @@
 #include <utility>
 #include "Block.h"
 
-using namespace std;
-
-enum dir {
+enum class dir {
 	up,
 	down,
 	left,
 	right
 };
 
+struct Movement {
+	int x;
+	int y;
+	int move_x;
+	int move_y;
+};
 
 class Board {
 public:
@@ -28,15 +32,18 @@ public:
 	void show_table(void);
 	void add_new(void);
 	void push_table(dir);
-	vector<showBlock> get_blocks(void);
+	std::vector<showBlock> get_blocks(void);
 	int getValueFrom(int x, int y) {
 		return table[x][y].get_value();
 	}
 	long get_points() {
 		return points;
 	}
+	void better_move(dir direction);
+	int ticks_left = 0;
+	std::vector<Movement> movement;
 private:
-	array<array<Block, 4>, 4> table;
+	std::array<std::array<Block, 4>, 4> table;
 	long points;
 };
 

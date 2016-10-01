@@ -34,7 +34,9 @@ public:
 	void test_draw_nums(void); //TO DELETE
 	void draw_block(int x, int y);
 	void draw_points();
+	void better_draw();
 private:
+	long long ticks = 0;
 	 Board& board;
 	SDL_Renderer* renderer;
 	std::unique_ptr<SDL_Rect> rect;
